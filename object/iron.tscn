@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://yblq0gagj38g"]
+
+[ext_resource type="Texture2D" uid="uid://su13j2q40ska" path="res://assets/images/iron.png" id="1_krypr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjkk4"]
+size = Vector2(62, 63)
+
+[node name="iron" type="StaticBody2D"]
+
+[node name="aset" type="Sprite2D" parent="."]
+position = Vector2(0.499998, 0)
+scale = Vector2(0.887324, 0.888889)
+texture = ExtResource("1_krypr")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jjkk4")

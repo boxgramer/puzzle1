@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1q0d6yq56mro"]
+
+[ext_resource type="Texture2D" uid="uid://fbqkr4qo5iwm" path="res://assets/images/fan_01.png" id="1_1rl7b"]
+[ext_resource type="Script" path="res://scripts/fan.gd" id="1_uh268"]
+[ext_resource type="Texture2D" uid="uid://c3t8ewve6rkg0" path="res://assets/images/fan_02.png" id="2_av50i"]
+[ext_resource type="Texture2D" uid="uid://tit2rqfcaqyb" path="res://assets/images/fan_03.png" id="3_ydfs1"]
+[ext_resource type="Script" path="res://scripts/cast.gd" id="5_1lj1y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usa85"]
+size = Vector2(62, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h7nrb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1rl7b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1rl7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_av50i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ydfs1")
+}],
+"loop": true,
+"name": &"play",
+"speed": 7.0
+}]
+
+[node name="fan" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_uh268")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_usa85")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.888889, 0.888889)
+sprite_frames = SubResource("SpriteFrames_h7nrb")
+animation = &"play"
+frame_progress = 0.409703
+
+[node name="cast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -84)
+script = ExtResource("5_1lj1y")
+
+[node name="cast2" type="RayCast2D" parent="."]
+target_position = Vector2(0, -84)
+script = ExtResource("5_1lj1y")
+
+[node name="cast3" type="RayCast2D" parent="."]
+target_position = Vector2(0, -84)
+script = ExtResource("5_1lj1y")

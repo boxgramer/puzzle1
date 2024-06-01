@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnn6icbvbr4jt"]
+
+[ext_resource type="Texture2D" uid="uid://dadnyg8t0m673" path="res://assets/images/lamp_active.png" id="1_0erji"]
+[ext_resource type="Texture2D" uid="uid://crygyiumup0ax" path="res://assets/images/lamp_non_active.png" id="1_nfddo"]
+[ext_resource type="Script" path="res://scripts/lamp.gd" id="1_s4igb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ot8t"]
+size = Vector2(62, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_teq81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0erji")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nfddo")
+}],
+"loop": true,
+"name": &"nonactive",
+"speed": 5.0
+}]
+
+[node name="lamp" type="Area2D"]
+script = ExtResource("1_s4igb")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6ot8t")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -56)
+sprite_frames = SubResource("SpriteFrames_teq81")
+animation = &"nonactive"

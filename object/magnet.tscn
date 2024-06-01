@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6k0neo1i2uul"]
+
+[ext_resource type="Script" path="res://scripts/magnet.gd" id="1_4hskl"]
+[ext_resource type="Texture2D" uid="uid://cyweptdr3fvb7" path="res://assets/images/magnet_blue.png" id="2_140j5"]
+[ext_resource type="Texture2D" uid="uid://2gxl1janpxa5" path="res://assets/images/magnet_normal.png" id="2_c5fl3"]
+[ext_resource type="Script" path="res://scripts/cast.gd" id="2_od0lv"]
+[ext_resource type="Texture2D" uid="uid://yfys11g0k8k1" path="res://assets/images/magnet_red.png" id="4_26wyh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8rc7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_140j5")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c5fl3")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_26wyh")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flctu"]
+size = Vector2(62, 63)
+
+[node name="magnet" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_4hskl")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.76837e-07, 0.499999)
+scale = Vector2(0.886, 0.9)
+sprite_frames = SubResource("SpriteFrames_e8rc7")
+animation = &"blue"
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_flctu")
+
+[node name="cast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -84)
+script = ExtResource("2_od0lv")
+
+[node name="cast2" type="RayCast2D" parent="."]
+target_position = Vector2(0, -84)
+script = ExtResource("2_od0lv")
+
+[node name="cast3" type="RayCast2D" parent="."]
+target_position = Vector2(0, -84)
+script = ExtResource("2_od0lv")

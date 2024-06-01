@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyrolvqp4h56y"]
+
+[ext_resource type="Texture2D" uid="uid://cnqqsn50yjnj8" path="res://assets/images/catrol_rope.png" id="1_1r41y"]
+[ext_resource type="Script" path="res://scripts/catrol.gd" id="1_p6ouu"]
+[ext_resource type="Texture2D" uid="uid://c3ll1bet8jlpa" path="res://assets/images/catrol_body.png" id="2_w6p8s"]
+[ext_resource type="Texture2D" uid="uid://c5pqw66a30gyo" path="res://assets/images/catrol_roller.png" id="3_ji2bs"]
+[ext_resource type="Texture2D" uid="uid://bvdk0fxja5wxg" path="res://assets/images/catrol_placer.png" id="3_kqdjq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p84j0"]
+size = Vector2(62, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyaif"]
+size = Vector2(62, 68)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_srptn"]
+a = Vector2(-32, 32)
+b = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_n42jw"]
+resource_name = "roller"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("roller:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_5nuqu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("roller:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_koyms"]
+_data = {
+"RESET": SubResource("Animation_5nuqu"),
+"roller": SubResource("Animation_n42jw")
+}
+
+[node name="catrol" type="Node2D"]
+script = ExtResource("1_p6ouu")
+
+[node name="rope" type="Line2D" parent="."]
+position = Vector2(0, 8)
+points = PackedVector2Array(0, 8, 0, 24)
+texture = ExtResource("1_1r41y")
+
+[node name="body" type="StaticBody2D" parent="."]
+input_pickable = true
+
+[node name="image" type="Sprite2D" parent="body"]
+position = Vector2(-1.90735e-06, -7.15256e-07)
+scale = Vector2(0.888889, 0.927536)
+texture = ExtResource("2_w6p8s")
+
+[node name="shape" type="CollisionShape2D" parent="body"]
+shape = SubResource("RectangleShape2D_p84j0")
+
+[node name="roller" type="Sprite2D" parent="."]
+texture = ExtResource("3_ji2bs")
+offset = Vector2(18, 0)
+
+[node name="placer" type="Area2D" parent="."]
+position = Vector2(0, 64)
+
+[node name="shape" type="CollisionShape2D" parent="placer"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_vyaif")
+
+[node name="image" type="Sprite2D" parent="placer"]
+texture = ExtResource("3_kqdjq")
+
+[node name="bottom" type="StaticBody2D" parent="placer" groups=["ignore"]]
+
+[node name="shape" type="CollisionShape2D" parent="placer/bottom"]
+shape = SubResource("SegmentShape2D_srptn")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_koyms")
+}

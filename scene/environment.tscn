@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://3qophtee71tj"]
+
+[ext_resource type="PackedScene" uid="uid://yblq0gagj38g" path="res://object/iron.tscn" id="1_gybgm"]
+[ext_resource type="PackedScene" uid="uid://c6k0neo1i2uul" path="res://object/magnet.tscn" id="1_p8ves"]
+[ext_resource type="PackedScene" uid="uid://xjo7o7d0xt8b" path="res://object/character.tscn" id="2_jljin"]
+[ext_resource type="PackedScene" uid="uid://cnn6icbvbr4jt" path="res://object/lamp.tscn" id="3_a2p8w"]
+[ext_resource type="PackedScene" uid="uid://b1q0d6yq56mro" path="res://object/fan.tscn" id="5_c0rab"]
+[ext_resource type="PackedScene" uid="uid://col1j5qw3gf5s" path="res://object/pusher.tscn" id="6_dffrb"]
+[ext_resource type="PackedScene" uid="uid://cyrolvqp4h56y" path="res://object/catrol.tscn" id="7_4j2r8"]
+
+[node name="Environment" type="Node2D"]
+
+[node name="iron" parent="." instance=ExtResource("1_gybgm")]
+position = Vector2(160, 352)
+
+[node name="iron7" parent="." instance=ExtResource("1_gybgm")]
+position = Vector2(96, 352)
+
+[node name="iron3" parent="." instance=ExtResource("1_gybgm")]
+position = Vector2(224, 352)
+
+[node name="iron10" parent="." instance=ExtResource("1_gybgm")]
+position = Vector2(544, 224)
+
+[node name="iron4" parent="." instance=ExtResource("1_gybgm")]
+position = Vector2(352, 352)
+
+[node name="iron5" parent="." instance=ExtResource("1_gybgm")]
+position = Vector2(416, 352)
+
+[node name="iron8" parent="." instance=ExtResource("1_gybgm")]
+position = Vector2(544, 352)
+
+[node name="iron9" parent="." instance=ExtResource("1_gybgm")]
+position = Vector2(544, 288)
+
+[node name="magnet" parent="." instance=ExtResource("1_p8ves")]
+position = Vector2(160, 96)
+dir = 3
+length = 400.0
+
+[node name="magnet2" parent="." instance=ExtResource("1_p8ves")]
+position = Vector2(288, 352)
+dir = 0
+length = 40.0
+
+[node name="magnet3" parent="." instance=ExtResource("1_p8ves")]
+position = Vector2(480, 352)
+dir = 0
+length = 160.0
+
+[node name="magnet4" parent="." instance=ExtResource("1_p8ves")]
+position = Vector2(416, 160)
+dir = 3
+length = 80.245
+
+[node name="character" parent="." instance=ExtResource("2_jljin")]
+position = Vector2(408, 288)
+
+[node name="lamp" parent="." instance=ExtResource("3_a2p8w")]
+z_index = 4
+position = Vector2(544, 160)
+
+[node name="fan" parent="." instance=ExtResource("5_c0rab")]
+position = Vector2(96, 288)
+dir = 3
+length = 100.0
+power = 1.0
+
+[node name="pusher" parent="." instance=ExtResource("6_dffrb")]
+position = Vector2(288, 288)
+
+[node name="catrol" parent="." instance=ExtResource("7_4j2r8")]
+position = Vector2(224, 32)
