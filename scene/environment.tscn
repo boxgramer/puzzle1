@@ -20,7 +20,7 @@ position = Vector2(96, 352)
 position = Vector2(224, 352)
 
 [node name="iron10" parent="." instance=ExtResource("1_gybgm")]
-position = Vector2(544, 224)
+position = Vector2(288, 352)
 
 [node name="iron4" parent="." instance=ExtResource("1_gybgm")]
 position = Vector2(352, 352)
@@ -40,9 +40,9 @@ dir = 3
 length = 400.0
 
 [node name="magnet2" parent="." instance=ExtResource("1_p8ves")]
-position = Vector2(288, 352)
-dir = 0
-length = 40.0
+position = Vector2(544, 224)
+dir = 2
+length = 300.0
 
 [node name="magnet3" parent="." instance=ExtResource("1_p8ves")]
 position = Vector2(480, 352)
@@ -55,7 +55,7 @@ dir = 3
 length = 80.245
 
 [node name="character" parent="." instance=ExtResource("2_jljin")]
-position = Vector2(408, 288)
+position = Vector2(160, 288)
 
 [node name="lamp" parent="." instance=ExtResource("3_a2p8w")]
 z_index = 4
