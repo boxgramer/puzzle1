@@ -83,11 +83,11 @@ func anim_state(st : int) :
 			anim.play("dead")
 			is_dead = true
 		1 : 
-			anim.play("blue")
+			anim.play("red")
 			is_dead = false
 			is_push = true
 		2 : 
-			anim.play("red")
+			anim.play("blue")
 			is_dead = false
 			is_push = false
 

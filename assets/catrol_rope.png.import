@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy5v04a0fufeg"
-path="res://.godot/imported/pusher_active_mark.png-4963521c79bdf937ab08fcb50fd740be.ctex"
+uid="uid://daxgb3ttjw5km"
+path="res://.godot/imported/catrol_rope.png-14e507567ac6d01a1270d8bb17f4dbcd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/pusher_active_mark.png"
-dest_files=["res://.godot/imported/pusher_active_mark.png-4963521c79bdf937ab08fcb50fd740be.ctex"]
+source_file="res://assets/catrol_rope.png"
+dest_files=["res://.godot/imported/catrol_rope.png-14e507567ac6d01a1270d8bb17f4dbcd.ctex"]
 
 [params]
 

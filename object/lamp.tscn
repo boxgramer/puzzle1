@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnn6icbvbr4jt"]
 
-[ext_resource type="Texture2D" uid="uid://dadnyg8t0m673" path="res://assets/images/lamp_active.png" id="1_0erji"]
-[ext_resource type="Texture2D" uid="uid://crygyiumup0ax" path="res://assets/images/lamp_non_active.png" id="1_nfddo"]
+[ext_resource type="Texture2D" uid="uid://d4htj1w8olsgc" path="res://assets/images/lamp_active.png" id="1_0erji"]
+[ext_resource type="Texture2D" uid="uid://crfr1bcy486xl" path="res://assets/images/lamp_non_active.png" id="1_nfddo"]
 [ext_resource type="Script" path="res://scripts/lamp.gd" id="1_s4igb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ot8t"]

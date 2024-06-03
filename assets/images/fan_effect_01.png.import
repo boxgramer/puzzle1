@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpvaurgetfbss"
-path="res://.godot/imported/pusher_nonactive_mark.png-26f842639a71349e827aaca375cf48f7.ctex"
+uid="uid://1bvspmn1cmjo"
+path="res://.godot/imported/fan_effect_01.png-acde48c22191f81db10fdb7c865d4a85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/pusher_nonactive_mark.png"
-dest_files=["res://.godot/imported/pusher_nonactive_mark.png-26f842639a71349e827aaca375cf48f7.ctex"]
+source_file="res://assets/images/fan_effect_01.png"
+dest_files=["res://.godot/imported/fan_effect_01.png-acde48c22191f81db10fdb7c865d4a85.ctex"]
 
 [params]
 

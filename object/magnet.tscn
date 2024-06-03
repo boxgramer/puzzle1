@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://c6k0neo1i2uul"]
 
 [ext_resource type="Script" path="res://scripts/magnet.gd" id="1_4hskl"]
-[ext_resource type="Texture2D" uid="uid://cyweptdr3fvb7" path="res://assets/images/magnet_blue.png" id="2_140j5"]
-[ext_resource type="Texture2D" uid="uid://2gxl1janpxa5" path="res://assets/images/magnet_normal.png" id="2_c5fl3"]
+[ext_resource type="Texture2D" uid="uid://blfobk5cgc3hh" path="res://assets/images/magnet_blue.png" id="2_140j5"]
+[ext_resource type="Texture2D" uid="uid://dkwu8qjjvok4m" path="res://assets/images/magnet_normal.png" id="2_c5fl3"]
 [ext_resource type="Script" path="res://scripts/cast.gd" id="2_od0lv"]
-[ext_resource type="Texture2D" uid="uid://yfys11g0k8k1" path="res://assets/images/magnet_red.png" id="4_26wyh"]
+[ext_resource type="Texture2D" uid="uid://d4xmmqftdt2" path="res://assets/images/magnet_red.png" id="4_26wyh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e8rc7"]
 animations = [{

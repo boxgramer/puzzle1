@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rhkdtgrvg0xx"
-path="res://.godot/imported/pusher_engkle.png-7bd9f2f8275497c129b9b911058dff99.ctex"
+uid="uid://dxlapxunpp7i8"
+path="res://.godot/imported/pusher_gear.png-c24b1aa70cd18ebb560a2fec1ff1f4db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/pusher_engkle.png"
-dest_files=["res://.godot/imported/pusher_engkle.png-7bd9f2f8275497c129b9b911058dff99.ctex"]
+source_file="res://assets/images/pusher_gear.png"
+dest_files=["res://.godot/imported/pusher_gear.png-c24b1aa70cd18ebb560a2fec1ff1f4db.ctex"]
 
 [params]
 

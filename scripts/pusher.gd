@@ -1,11 +1,11 @@
 extends Node2D
 
-@export var active_texture: Texture2D
-@export var nonactive_texture: Texture2D
+
 
 @onready var anim = $anim
 @onready var body = $body
 @onready var mark = $mark
+@onready var mark_anim = $mark/anim
 
 var state = 0
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +31,7 @@ func anim_state(state:int) :
 	match (state) :
 		0 : 
 			anim.pause()
-			mark.texture = nonactive_texture
+			mark_anim.pause()
 		1 : 
 			anim.play("pusher")
-			mark.texture = active_texture
+			mark_anim.play('run')

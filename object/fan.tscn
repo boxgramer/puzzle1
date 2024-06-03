@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://b1q0d6yq56mro"]
 
-[ext_resource type="Texture2D" uid="uid://fbqkr4qo5iwm" path="res://assets/images/fan_01.png" id="1_1rl7b"]
+[ext_resource type="Texture2D" uid="uid://d123vkrtv3fjj" path="res://assets/images/fan_01.png" id="1_1rl7b"]
 [ext_resource type="Script" path="res://scripts/fan.gd" id="1_uh268"]
-[ext_resource type="Texture2D" uid="uid://c3t8ewve6rkg0" path="res://assets/images/fan_02.png" id="2_av50i"]
-[ext_resource type="Texture2D" uid="uid://tit2rqfcaqyb" path="res://assets/images/fan_03.png" id="3_ydfs1"]
+[ext_resource type="Texture2D" uid="uid://c8aq188d3cdux" path="res://assets/images/fan_02.png" id="2_av50i"]
+[ext_resource type="Texture2D" uid="uid://8rdmsvnna66q" path="res://assets/images/fan_03.png" id="3_ydfs1"]
 [ext_resource type="Script" path="res://scripts/cast.gd" id="5_1lj1y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usa85"]

@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://col1j5qw3gf5s"]
+[gd_scene load_steps=14 format=3 uid="uid://col1j5qw3gf5s"]
 
 [ext_resource type="Script" path="res://scripts/pusher.gd" id="1_lixnd"]
-[ext_resource type="Texture2D" uid="uid://cc0547npffimj" path="res://assets/images/pusher_body.png" id="1_svtse"]
-[ext_resource type="Texture2D" uid="uid://bcfauvrowx7m5" path="res://assets/images/pusher_engkle.png" id="1_yypsc"]
-[ext_resource type="Texture2D" uid="uid://cy5rivesobmax" path="res://assets/images/pusher_head.png" id="2_tayny"]
-[ext_resource type="Texture2D" uid="uid://cpvaurgetfbss" path="res://assets/images/pusher_nonactive_mark.png" id="3_hxrvk"]
-[ext_resource type="Texture2D" uid="uid://cy5v04a0fufeg" path="res://assets/images/pusher_active_mark.png" id="4_oqh4a"]
+[ext_resource type="Texture2D" uid="uid://unk5uo0hlr3b" path="res://assets/images/pusher_body.png" id="1_svtse"]
+[ext_resource type="Texture2D" uid="uid://rhkdtgrvg0xx" path="res://assets/images/pusher_engkle.png" id="1_yypsc"]
+[ext_resource type="Texture2D" uid="uid://bkopuk4y4pujp" path="res://assets/images/pusher_head.png" id="2_tayny"]
+[ext_resource type="Texture2D" uid="uid://dxlapxunpp7i8" path="res://assets/images/pusher_gear.png" id="5_lqir0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukmo1"]
 size = Vector2(62, 63)
@@ -75,10 +74,45 @@ _data = {
 "pusher": SubResource("Animation_ubpac")
 }
 
+[sub_resource type="Animation" id="Animation_fq1v7"]
+resource_name = "run"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_h2lq7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v4eid"]
+_data = {
+"RESET": SubResource("Animation_h2lq7"),
+"run": SubResource("Animation_fq1v7")
+}
+
 [node name="pusher" type="Node2D"]
 script = ExtResource("1_lixnd")
-active_texture = ExtResource("4_oqh4a")
-nonactive_texture = ExtResource("3_hxrvk")
 
 [node name="angkle" type="Sprite2D" parent="."]
 position = Vector2(22, 1)
@@ -112,4 +146,9 @@ libraries = {
 speed_scale = 2.0
 
 [node name="mark" type="Sprite2D" parent="."]
-texture = ExtResource("4_oqh4a")
+texture = ExtResource("5_lqir0")
+
+[node name="anim" type="AnimationPlayer" parent="mark"]
+libraries = {
+"": SubResource("AnimationLibrary_v4eid")
+}
