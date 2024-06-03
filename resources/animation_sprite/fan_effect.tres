@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://qf622rpiohmn"]
+
+[ext_resource type="Texture2D" uid="uid://1bvspmn1cmjo" path="res://assets/images/fan_effect_01.png" id="1_goqgv"]
+[ext_resource type="Texture2D" uid="uid://b7qao0vc4t0px" path="res://assets/images/fan_effect_02.png" id="2_b11mj"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_goqgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_b11mj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

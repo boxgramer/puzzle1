@@ -13,6 +13,7 @@ extends StaticBody2D
 @onready var  cast:RayCast2D = $cast 
 @onready var  cast2:RayCast2D = $cast2
 @onready var  cast3:RayCast2D = $cast3 
+@onready var effect= $anim/windcontrol
 
 
 var state:int = 0;
@@ -24,8 +25,8 @@ var size = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	size =  shape.shape.size/2 - Vector2(10, 10)
-
-
+	
+	effect.hide()
 	set_rotation_anim(dir)
 	anim_state(state)
 
@@ -99,9 +100,11 @@ func anim_state(st : int) :
 		0 : 
 			anim.play("idle")
 			is_dead = true
+			effect.hide()
 		1 : 
 			anim.play("play")
 			await get_tree().create_timer(0.5).timeout
+			effect.show()
 
 			is_dead = false
 			is_push = true
