@@ -72,3 +72,6 @@ position = Vector2(288, 288)
 
 [node name="catrol" parent="." instance=ExtResource("7_4j2r8")]
 position = Vector2(224, 32)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(272, 192)
