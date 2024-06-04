@@ -1,19 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cyrolvqp4h56y"]
+[gd_scene load_steps=12 format=3 uid="uid://cyrolvqp4h56y"]
 
 [ext_resource type="Script" path="res://scripts/catrol.gd" id="1_p6ouu"]
+[ext_resource type="Texture2D" uid="uid://cwb2mnbcqc7i1" path="res://assets/images/catrol_rope.png" id="2_ev1m8"]
 [ext_resource type="Texture2D" uid="uid://bibrv61nk72rp" path="res://assets/images/catrol_body.png" id="2_w6p8s"]
 [ext_resource type="Texture2D" uid="uid://b5x72xl8n8gju" path="res://assets/images/catrol_roller.png" id="3_ji2bs"]
 [ext_resource type="Texture2D" uid="uid://bbl3jk6ed5q0a" path="res://assets/images/catrol_placer.png" id="3_kqdjq"]
-
-[sub_resource type="Gradient" id="Gradient_vqoqv"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_yfk20"]
-seed = 7
-frequency = 0.015
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q6oku"]
-color_ramp = SubResource("Gradient_vqoqv")
-noise = SubResource("FastNoiseLite_yfk20")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p84j0"]
 size = Vector2(62, 63)
@@ -66,8 +57,9 @@ _data = {
 script = ExtResource("1_p6ouu")
 
 [node name="rope" type="Line2D" parent="."]
-points = PackedVector2Array(-1, 29, -1, 32)
-texture = SubResource("NoiseTexture2D_q6oku")
+points = PackedVector2Array(-1, 29, -1, 34)
+texture = ExtResource("2_ev1m8")
+texture_mode = 1
 
 [node name="body" type="StaticBody2D" parent="."]
 input_pickable = true

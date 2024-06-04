@@ -50,6 +50,9 @@ func _physics_process(delta):
 	if is_on_force_left_right :
 		move_right(speed_calc( speed_right, delta, is_push_right))
 		move_left(speed_calc( speed_left, delta, is_push_left))
+	
+	if is_on_wall():
+		$anim.play('hit_wall')
 
 	move_and_slide()
 
