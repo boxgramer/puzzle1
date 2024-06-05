@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://3ejk38kkbg5j"]
+[gd_scene load_steps=5 format=3 uid="uid://3ejk38kkbg5j"]
+
+[ext_resource type="Theme" uid="uid://x38rdqs1y6ly" path="res://resources/theme/theme_font_30.tres" id="2_l6vmq"]
+[ext_resource type="Texture2D" uid="uid://c11vq2fi86g86" path="res://assets/images/main_menu_placer.png" id="2_udm1k"]
+[ext_resource type="Texture2D" uid="uid://bkoy530p81j0q" path="res://assets/images/main.png" id="3_k8w6r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tee3w"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -7,3 +13,132 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="quote" type="Label" parent="."]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 656.0
+offset_bottom = 280.0
+theme = ExtResource("2_l6vmq")
+text = "Life is journey with problem to solve and lesson to learn but most of all, experience to enjoy "
+autowrap_mode = 2
+
+[node name="next" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_top = 72.0
+offset_right = -48.0
+offset_bottom = 144.0
+grow_horizontal = 0
+rotation = 0.344567
+theme = ExtResource("2_l6vmq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tee3w")
+text = "Next"
+
+[node name="prev" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -280.0
+offset_top = 128.0
+offset_right = -88.0
+offset_bottom = 200.0
+grow_horizontal = 0
+rotation = 0.273377
+theme = ExtResource("2_l6vmq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tee3w")
+text = "Prev"
+
+[node name="level" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -254.0
+offset_top = -189.0
+offset_right = -98.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_udm1k")
+
+[node name="level2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -189.0
+offset_right = 156.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_udm1k")
+
+[node name="level3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 232.0
+offset_top = -192.0
+offset_right = 388.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_udm1k")
+
+[node name="level4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 488.0
+offset_top = -192.0
+offset_right = 644.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_udm1k")
+
+[node name="level5" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 728.0
+offset_top = -192.0
+offset_right = 884.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_udm1k")
+
+[node name="charakter" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -256.0
+offset_right = -149.0
+offset_bottom = -181.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_k8w6r")
