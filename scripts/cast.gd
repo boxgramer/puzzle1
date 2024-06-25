@@ -87,25 +87,11 @@ func add_force_dir(dir:int, colider:main_character) :
 		else :
 			colider.pull()
 	elif type != 1 and not is_dead :
-		# if is_push :
-		# 	colider.push()
-		# else :
-		# 	colider.pull()
-		
+	
 		if (is_push && colider.type == 1) || (!is_push && colider.type ==0):
 			colider.pull()
-			print("pull", " is_push :", is_push , " is_dead:", is_dead )
 		if (is_push && colider.type == 0) || (!is_push && colider.type ==1):
 			colider.push()
-			print("push", " is_push :", is_push , " is_dead:", is_dead )
-	
-		# else :
-		# 	if colider.type == 1 :
-		# 		colider.pull()
-		# 	else :
-		# 		colider.push()
-	else:
-		print("dead", " is_push :", is_push , " is_dead:", is_dead )
 	
 
 	
