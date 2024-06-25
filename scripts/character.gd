@@ -38,16 +38,22 @@ var is_down : bool =true
 var is_on_force_up_down = false;
 var is_on_force_left_right = false;
 
-
+var is_over = false
 
 func _ready():
+	reset()
 	sleeping()
 
 
 
-
+func reset() :
+	is_over = false
+func over() :
+	is_over = true
 
 func _physics_process(delta):
+	if is_over :
+		return
 
 	if is_on_force_up_down: 
 		move_down( speed_calc(speed_down, delta, is_push_down ))
@@ -70,9 +76,12 @@ func _physics_process(delta):
 	if is_shock:
 		delay_shock(delta)
 
+
+
 func start_shock() : 
 	time_shock = duration_shock
 	shocking()
+	is_shock = true
 
 
 func delay_shock(delta):
@@ -97,7 +106,6 @@ func shocking() :
 
 
 
-	is_shock = true
 
 
 func speed_calc(speed, delta, is_push = true ):

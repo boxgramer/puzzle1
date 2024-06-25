@@ -54,6 +54,8 @@ _data = {
 }
 
 [node name="catrol" type="Node2D"]
+z_index = 2
+z_as_relative = false
 script = ExtResource("1_p6ouu")
 
 [node name="rope" type="Line2D" parent="."]
