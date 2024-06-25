@@ -116,7 +116,7 @@ script = ExtResource("1_lixnd")
 
 [node name="angkle" type="Sprite2D" parent="."]
 position = Vector2(22, 1)
-scale = Vector2(0.498, 0.739)
+scale = Vector2(1.1875, 1)
 texture = ExtResource("1_yypsc")
 
 [node name="body" type="StaticBody2D" parent="."]
@@ -124,7 +124,6 @@ input_pickable = true
 
 [node name="image" type="Sprite2D" parent="body"]
 position = Vector2(0, -4.76837e-07)
-scale = Vector2(0.888889, 0.901408)
 texture = ExtResource("1_svtse")
 
 [node name="shape" type="CollisionShape2D" parent="body"]

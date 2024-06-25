@@ -2,16 +2,22 @@ extends CharacterBody2D
 class_name main_character
 
 
+@export_enum("red", "blue") var type:int =0
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-const THRESHOLD =5.0
+
+var duration_shock = 1.0
+var time_shock= 0
+var is_shock = false
+@onready var  face_shock =  $body/face_shock
+@onready var face_sleep = $body/face_sleep
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var gravity =  980
 
+var is_start_hit_wall = false
 
-var speed_up:float = 0.0
+var speed_up:float = 0.0 
 var is_push_up :bool =true
 
 var speed_down :float = 0.0
@@ -34,6 +40,8 @@ var is_on_force_left_right = false;
 
 
 
+func _ready():
+	sleeping()
 
 
 
@@ -41,36 +49,61 @@ var is_on_force_left_right = false;
 
 func _physics_process(delta):
 
-	if is_on_force_up_down : 
+	if is_on_force_up_down: 
 		move_down( speed_calc(speed_down, delta, is_push_down ))
 		move_up( speed_calc( speed_up , delta, is_push_up ))
 	else : 
 		add_gravity(delta)
 
-	if is_on_force_left_right :
+	if is_on_force_left_right  :
 		move_right(speed_calc( speed_right, delta, is_push_right))
 		move_left(speed_calc( speed_left, delta, is_push_left))
 	
 	if is_on_wall():
-		$anim.play('hit_wall')
+		if ! is_start_hit_wall :
+			is_start_hit_wall = true
+			start_shock()
+	else : 
+		is_start_hit_wall = false
 
 	move_and_slide()
+	if is_shock:
+		delay_shock(delta)
+
+func start_shock() : 
+	time_shock = duration_shock
+	shocking()
+
+
+func delay_shock(delta):
+	if time_shock <= 0: 
+		sleeping()	
+		
+	time_shock -= delta
+
+func sleeping() :
+	face_shock.hide()
+	face_sleep.show()
+	$anim.play('sleep')
+	$sleep_particle.show()
+
+	is_shock = false
+	
+func shocking() :
+	face_shock.show()
+	face_sleep.hide()
+	$anim.play('shock')
+	$sleep_particle.hide()
+
+
+
+	is_shock = true
 
 
 func speed_calc(speed, delta, is_push = true ):
 
 	var dir = 1 if is_push else -1
 	return speed * SPEED * delta * dir	
-func not_move(delta) :
-	if (abs(speed_left - speed_right) <= THRESHOLD) :
-		velocity.x = 0
-	if(speed_down <= 0 and speed_up <= 0 ) :
-		return
-
-	if(abs(speed_down - speed_up) <= THRESHOLD)  :
-		velocity.y = 0
-
-
 
 func add_gravity(delta)  :
 	velocity.y += gravity * delta;
@@ -85,7 +118,7 @@ func move_left(speed:float) :
 
 func push() :
 	if is_down  :
-		is_push_down = true
+		is_push_down = true 
 	if is_up  :
 		is_push_up = true
 	

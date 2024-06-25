@@ -1,5 +1,6 @@
 extends RayCast2D
 
+@export_enum('magnet', 'normal') var type:int = 0
 
 var dir:int =0
 var length:float = 0.0
@@ -17,18 +18,22 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if is_dead  :
+
+	if is_dead :
+		check_not_colide()
 		return
 
 	if is_colliding():	
 		colider = get_collider();
+		
 		if colider is main_character:
 			add_force_dir(dir , colider)
 
+	check_not_colide()
+func check_not_colide() :
 	if not is_colliding() && colider != null && colider is main_character :
 		check_up_down()
 		check_left_right()
-
 func check_up_down() :  
 	#check direction is left or right 
 	if dir == 2 || dir == 3 :
@@ -75,10 +80,34 @@ func add_force_dir(dir:int, colider:main_character) :
 			colider.right()
 			colider.is_on_force_left_right= true
 
-	if is_push :
-		colider.push()
-	else :
-		colider.pull()
+	#type normal
+	if type == 1:
+		if is_push :
+			colider.push()
+		else :
+			colider.pull()
+	elif type != 1 and not is_dead :
+		# if is_push :
+		# 	colider.push()
+		# else :
+		# 	colider.pull()
+		
+		if (is_push && colider.type == 1) || (!is_push && colider.type ==0):
+			colider.pull()
+			print("pull", " is_push :", is_push , " is_dead:", is_dead )
+		if (is_push && colider.type == 0) || (!is_push && colider.type ==1):
+			colider.push()
+			print("push", " is_push :", is_push , " is_dead:", is_dead )
+	
+		# else :
+		# 	if colider.type == 1 :
+		# 		colider.pull()
+		# 	else :
+		# 		colider.push()
+	else:
+		print("dead", " is_push :", is_push , " is_dead:", is_dead )
+	
+
 	
 
 	colider.set_power(power)

@@ -9,7 +9,6 @@ size = Vector2(62, 63)
 
 [node name="aset" type="Sprite2D" parent="."]
 position = Vector2(0.499998, 0)
-scale = Vector2(0.887324, 0.888889)
 texture = ExtResource("1_krypr")
 
 [node name="shape" type="CollisionShape2D" parent="."]

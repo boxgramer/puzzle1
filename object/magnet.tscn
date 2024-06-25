@@ -42,7 +42,6 @@ script = ExtResource("1_4hskl")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.76837e-07, 0.499999)
-scale = Vector2(0.886, 0.9)
 sprite_frames = SubResource("SpriteFrames_e8rc7")
 animation = &"blue"
 
@@ -50,6 +49,7 @@ animation = &"blue"
 shape = SubResource("RectangleShape2D_flctu")
 
 [node name="cast" type="RayCast2D" parent="."]
+position = Vector2(1, 0)
 target_position = Vector2(0, -84)
 script = ExtResource("2_od0lv")
 

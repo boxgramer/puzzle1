@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1q0d6yq56mro"]
+[gd_scene load_steps=10 format=3 uid="uid://b1q0d6yq56mro"]
 
 [ext_resource type="Texture2D" uid="uid://d123vkrtv3fjj" path="res://assets/images/fan_01.png" id="1_1rl7b"]
 [ext_resource type="Script" path="res://scripts/fan.gd" id="1_uh268"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://8rdmsvnna66q" path="res://assets/images/fan_03.png" id="3_ydfs1"]
 [ext_resource type="Script" path="res://scripts/cast.gd" id="5_1lj1y"]
 [ext_resource type="SpriteFrames" uid="uid://qf622rpiohmn" path="res://resources/animation_sprite/fan_effect.tres" id="5_7rlkt"]
+[ext_resource type="Texture2D" uid="uid://bx3ybq1nkv1mq" path="res://assets/images/fan.png" id="7_enqxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usa85"]
 size = Vector2(62, 63)
@@ -43,6 +44,7 @@ script = ExtResource("1_uh268")
 shape = SubResource("RectangleShape2D_usa85")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(0.888889, 0.888889)
 sprite_frames = SubResource("SpriteFrames_h7nrb")
 animation = &"play"
@@ -74,11 +76,17 @@ autoplay = "default"
 [node name="cast" type="RayCast2D" parent="."]
 target_position = Vector2(0, -84)
 script = ExtResource("5_1lj1y")
+type = 1
 
 [node name="cast2" type="RayCast2D" parent="."]
 target_position = Vector2(0, -84)
 script = ExtResource("5_1lj1y")
+type = 1
 
 [node name="cast3" type="RayCast2D" parent="."]
 target_position = Vector2(0, -84)
 script = ExtResource("5_1lj1y")
+type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("7_enqxm")

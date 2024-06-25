@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=3 uid="uid://btvasvrgp3nmv"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_jbxlf"]
+[ext_resource type="Texture2D" uid="uid://bnxtubn8k50xe" path="res://assets/images/main_blue.png" id="2_3q6p5"]
+[ext_resource type="Texture2D" uid="uid://c7nxn47shs4mr" path="res://assets/images/main_face_shock.png" id="3_tnm7k"]
+[ext_resource type="Texture2D" uid="uid://dxtqj3ec5umhg" path="res://assets/images/main_face_sleep.png" id="4_b23rv"]
+[ext_resource type="Texture2D" uid="uid://dwkih4useg1v7" path="res://assets/images/main_zzzztt.png" id="5_10pd2"]
+[ext_resource type="Texture2D" uid="uid://vcc6tr80pmfn" path="res://assets/images/main_face_cheek.png" id="5_os1sd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l7yp"]
+size = Vector2(63.25, 63.375)
+
+[sub_resource type="Animation" id="Animation_jkpm6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/cheek:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7x0ls"]
+resource_name = "shock"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_50ugo"]
+resource_name = "sleep"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.07812, 1.04688), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/cheek:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.078, 1.047), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ny3pj"]
+_data = {
+"RESET": SubResource("Animation_jkpm6"),
+"shock": SubResource("Animation_7x0ls"),
+"sleep": SubResource("Animation_50ugo")
+}
+
+[sub_resource type="Curve" id="Curve_kc5hp"]
+_data = [Vector2(0.106742, 0.043956), 0.0, 0.0, 0, 0, Vector2(1, 0.340659), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="character_red" type="CharacterBody2D"]
+script = ExtResource("1_jbxlf")
+type = 1
+
+[node name="body" type="Node2D" parent="."]
+
+[node name="body" type="Sprite2D" parent="body"]
+position = Vector2(-0.499999, -1.5)
+texture = ExtResource("2_3q6p5")
+
+[node name="face_shock" type="Sprite2D" parent="body"]
+visible = false
+texture = ExtResource("3_tnm7k")
+
+[node name="face_sleep" type="Sprite2D" parent="body"]
+texture = ExtResource("4_b23rv")
+
+[node name="cheek" type="Sprite2D" parent="body"]
+position = Vector2(1, 0)
+texture = ExtResource("5_os1sd")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0l7yp")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ny3pj")
+}
+autoplay = "sleep"
+
+[node name="sleep_particle" type="CPUParticles2D" parent="."]
+position = Vector2(1, -35)
+amount = 5
+local_coords = true
+texture = ExtResource("5_10pd2")
+direction = Vector2(0, -1)
+spread = 9.09
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.41
+initial_velocity_max = 43.93
+scale_amount_min = 0.0
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_kc5hp")
