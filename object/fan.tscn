@@ -1,40 +1,166 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1q0d6yq56mro"]
+[gd_scene load_steps=16 format=3 uid="uid://b1q0d6yq56mro"]
 
-[ext_resource type="Texture2D" uid="uid://d123vkrtv3fjj" path="res://assets/images/fan_01.png" id="1_1rl7b"]
 [ext_resource type="Script" path="res://scripts/fan.gd" id="1_uh268"]
-[ext_resource type="Texture2D" uid="uid://c8aq188d3cdux" path="res://assets/images/fan_02.png" id="2_av50i"]
-[ext_resource type="Texture2D" uid="uid://8rdmsvnna66q" path="res://assets/images/fan_03.png" id="3_ydfs1"]
 [ext_resource type="Script" path="res://scripts/cast.gd" id="5_1lj1y"]
-[ext_resource type="SpriteFrames" uid="uid://qf622rpiohmn" path="res://resources/animation_sprite/fan_effect.tres" id="5_7rlkt"]
 [ext_resource type="Texture2D" uid="uid://bx3ybq1nkv1mq" path="res://assets/images/fan.png" id="7_enqxm"]
+[ext_resource type="Texture2D" uid="uid://dw55ugsnma0tj" path="res://assets/images/fan_effect.png" id="7_ewp14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usa85"]
 size = Vector2(62, 63)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_h7nrb"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_1rl7b")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_1rl7b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_av50i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_ydfs1")
-}],
-"loop": true,
-"name": &"play",
-"speed": 7.0
-}]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r0yag"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5g74n"]
+animation = &"fast"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pg3yn"]
+animation = &"slow"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ay32u"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mjuy6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_d7n3c"]
+states/End/position = Vector2(912, 93)
+states/RESET/node = SubResource("AnimationNodeAnimation_r0yag")
+states/RESET/position = Vector2(301, 186)
+states/Start/position = Vector2(146, 77)
+states/fast/node = SubResource("AnimationNodeAnimation_5g74n")
+states/fast/position = Vector2(478, 110)
+states/slow/node = SubResource("AnimationNodeAnimation_pg3yn")
+states/slow/position = Vector2(288, 86)
+transitions = ["slow", "fast", SubResource("AnimationNodeStateMachineTransition_ay32u"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_mjuy6")]
+
+[sub_resource type="Animation" id="Animation_45xpr"]
+resource_name = "slow"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.3, 1.5, 1.7, 1.9, 2, 2.1, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cfvcr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../effect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../effect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../effect:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fyn2f"]
+resource_name = "fast"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../effect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../effect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../effect:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(40, 0), Vector2(100, 0), Vector2(120, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_05o5x"]
+_data = {
+"RESET": SubResource("Animation_cfvcr"),
+"fast": SubResource("Animation_fyn2f"),
+"slow": SubResource("Animation_45xpr")
+}
 
 [node name="fan" type="StaticBody2D"]
 input_pickable = true
@@ -42,35 +168,6 @@ script = ExtResource("1_uh268")
 
 [node name="shape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_usa85")
-
-[node name="anim" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.888889, 0.888889)
-sprite_frames = SubResource("SpriteFrames_h7nrb")
-animation = &"play"
-frame_progress = 0.409703
-
-[node name="windcontrol" type="Node2D" parent="anim"]
-modulate = Color(1, 1, 1, 0.258824)
-scale = Vector2(1.125, 1.125)
-
-[node name="wind" type="AnimatedSprite2D" parent="anim/windcontrol"]
-position = Vector2(43.04, -24)
-scale = Vector2(0.3, 0.714)
-sprite_frames = ExtResource("5_7rlkt")
-autoplay = "default"
-frame_progress = 0.1361
-
-[node name="wind2" type="AnimatedSprite2D" parent="anim/windcontrol"]
-position = Vector2(43.04, 0)
-scale = Vector2(0.3, 0.714)
-sprite_frames = ExtResource("5_7rlkt")
-autoplay = "default"
-
-[node name="wind3" type="AnimatedSprite2D" parent="anim/windcontrol"]
-position = Vector2(43.04, 24)
-scale = Vector2(0.3, 0.714)
-sprite_frames = ExtResource("5_7rlkt")
-autoplay = "default"
 
 [node name="cast" type="RayCast2D" parent="."]
 target_position = Vector2(0, -84)
@@ -87,5 +184,25 @@ target_position = Vector2(0, -84)
 script = ExtResource("5_1lj1y")
 type = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="anim_tree" type="AnimationTree" parent="."]
+root_node = NodePath("../placeholder/fan")
+tree_root = SubResource("AnimationNodeStateMachine_d7n3c")
+anim_player = NodePath("../anim")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../placeholder/fan")
+libraries = {
+"": SubResource("AnimationLibrary_05o5x")
+}
+
+[node name="placeholder" type="Node2D" parent="."]
+
+[node name="effect" type="Sprite2D" parent="placeholder"]
+visible = false
+modulate = Color(1, 1, 1, 0.431373)
+position = Vector2(40, 0)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("7_ewp14")
+
+[node name="fan" type="Sprite2D" parent="placeholder"]
 texture = ExtResource("7_enqxm")

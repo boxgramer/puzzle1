@@ -8,12 +8,14 @@ extends StaticBody2D
 @export var power:float = 5.0
 
 
-@onready var anim: AnimatedSprite2D = $anim
+@onready var anim_tree =  $anim_tree
+@onready var state_machine =  anim_tree['parameters/playback']
+@onready var placeholder = $placeholder
 @onready var shape :CollisionShape2D= $shape
 @onready var  cast:RayCast2D = $cast 
 @onready var  cast2:RayCast2D = $cast2
 @onready var  cast3:RayCast2D = $cast3 
-@onready var effect= $anim/windcontrol
+@onready var effect= $placeholder/effect
 
 
 var state:int = 0;
@@ -78,13 +80,13 @@ func _process(delta):
 func set_rotation_anim( dir :int) :
 	match (dir) :
 		0 : 
-			anim.rotation_degrees =270 
+			placeholder.rotation_degrees =270 
 		1 : 
-			anim.rotation_degrees =90 
+			placeholder.rotation_degrees =90 
 		2 : 
-			anim.rotation_degrees = 180
+			placeholder.rotation_degrees = 180
 		3 : 
-			anim.rotation_degrees = 0
+			placeholder.rotation_degrees = 0
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton :
@@ -98,13 +100,12 @@ func change_state() :
 func anim_state(st : int) :
 	match  (st) :
 		0 : 
-			anim.play("idle")
+			state_machine.travel("RESET")
 			is_dead = true
 			effect.hide()
 		1 : 
-			anim.play("play")
-			await get_tree().create_timer(0.5).timeout
-			effect.show()
+			state_machine.travel("slow")
+			await get_tree().create_timer(2.0).timeout
 
 			is_dead = false
 			is_push = true
