@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cyrolvqp4h56y"]
 
-[ext_resource type="Script" path="res://scripts/catrol.gd" id="1_p6ouu"]
+[ext_resource type="Script" uid="uid://cfxej8xxpokke" path="res://scripts/catrol.gd" id="1_p6ouu"]
 [ext_resource type="Texture2D" uid="uid://cwb2mnbcqc7i1" path="res://assets/images/catrol_rope.png" id="2_ev1m8"]
 [ext_resource type="Texture2D" uid="uid://bibrv61nk72rp" path="res://assets/images/catrol_body.png" id="2_w6p8s"]
 [ext_resource type="Texture2D" uid="uid://b5x72xl8n8gju" path="res://assets/images/catrol_roller.png" id="3_ji2bs"]
@@ -49,8 +49,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_koyms"]
 _data = {
-"RESET": SubResource("Animation_5nuqu"),
-"roller": SubResource("Animation_n42jw")
+&"RESET": SubResource("Animation_5nuqu"),
+&"roller": SubResource("Animation_n42jw")
 }
 
 [node name="catrol" type="Node2D"]

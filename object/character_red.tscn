@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cd6qge467da5r"]
 
-[ext_resource type="Script" path="res://scripts/character.gd" id="1_trwy8"]
+[ext_resource type="Script" uid="uid://d4g1uyxbqjcwc" path="res://scripts/character.gd" id="1_trwy8"]
 [ext_resource type="Texture2D" uid="uid://qqlwljvrg3ij" path="res://assets/images/main_red.png" id="2_tqru5"]
 [ext_resource type="Texture2D" uid="uid://c7nxn47shs4mr" path="res://assets/images/main_face_shock.png" id="3_pb206"]
 [ext_resource type="Texture2D" uid="uid://dxtqj3ec5umhg" path="res://assets/images/main_face_sleep.png" id="4_l7pu3"]
@@ -57,9 +57,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ny3pj"]
 _data = {
-"RESET": SubResource("Animation_jkpm6"),
-"shock": SubResource("Animation_7x0ls"),
-"sleep": SubResource("Animation_50ugo")
+&"RESET": SubResource("Animation_jkpm6"),
+&"shock": SubResource("Animation_7x0ls"),
+&"sleep": SubResource("Animation_50ugo")
 }
 
 [sub_resource type="Curve" id="Curve_kc5hp"]

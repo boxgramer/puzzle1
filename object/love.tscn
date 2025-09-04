@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dlfulgd8ty3n0"]
 
-[ext_resource type="Script" path="res://scripts/love.gd" id="1_8385r"]
+[ext_resource type="Script" uid="uid://dvjuo0fgf3tk" path="res://scripts/love.gd" id="1_8385r"]
 [ext_resource type="Texture2D" uid="uid://daukdor75lrwi" path="res://assets/images/love_stick.png" id="1_y2k6p"]
 [ext_resource type="Texture2D" uid="uid://brphxyo5x5ktp" path="res://assets/images/love_heart.png" id="2_ds220"]
-[ext_resource type="Script" path="res://scripts/cast.gd" id="4_epnit"]
+[ext_resource type="Script" uid="uid://dokjsstqk43mj" path="res://scripts/cast.gd" id="4_epnit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46kti"]
 size = Vector2(7.625, 63.6562)
@@ -91,8 +91,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tl6e1"]
 _data = {
-"RESET": SubResource("Animation_l1h81"),
-"over": SubResource("Animation_1063y")
+&"RESET": SubResource("Animation_l1h81"),
+&"over": SubResource("Animation_1063y")
 }
 
 [node name="love" type="StaticBody2D"]

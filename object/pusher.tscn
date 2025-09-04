@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://col1j5qw3gf5s"]
 
-[ext_resource type="Script" path="res://scripts/pusher.gd" id="1_lixnd"]
+[ext_resource type="Script" uid="uid://v1xnmmfmkkql" path="res://scripts/pusher.gd" id="1_lixnd"]
 [ext_resource type="Texture2D" uid="uid://unk5uo0hlr3b" path="res://assets/images/pusher_body.png" id="1_svtse"]
 [ext_resource type="Texture2D" uid="uid://rhkdtgrvg0xx" path="res://assets/images/pusher_engkle.png" id="1_yypsc"]
 [ext_resource type="Texture2D" uid="uid://bkopuk4y4pujp" path="res://assets/images/pusher_head.png" id="2_tayny"]
@@ -70,8 +70,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jxokn"]
 _data = {
-"RESET": SubResource("Animation_iyw65"),
-"pusher": SubResource("Animation_ubpac")
+&"RESET": SubResource("Animation_iyw65"),
+&"pusher": SubResource("Animation_ubpac")
 }
 
 [sub_resource type="Animation" id="Animation_h2lq7"]
@@ -107,8 +107,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v4eid"]
 _data = {
-"RESET": SubResource("Animation_h2lq7"),
-"run": SubResource("Animation_fq1v7")
+&"RESET": SubResource("Animation_h2lq7"),
+&"run": SubResource("Animation_fq1v7")
 }
 
 [node name="pusher" type="Node2D"]

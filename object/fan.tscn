@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://b1q0d6yq56mro"]
 
-[ext_resource type="Script" path="res://scripts/fan.gd" id="1_uh268"]
-[ext_resource type="Script" path="res://scripts/cast.gd" id="5_1lj1y"]
+[ext_resource type="Script" uid="uid://byuovl11kqlck" path="res://scripts/fan.gd" id="1_uh268"]
+[ext_resource type="Script" uid="uid://dokjsstqk43mj" path="res://scripts/cast.gd" id="5_1lj1y"]
 [ext_resource type="Texture2D" uid="uid://bx3ybq1nkv1mq" path="res://assets/images/fan.png" id="7_enqxm"]
 [ext_resource type="Texture2D" uid="uid://dw55ugsnma0tj" path="res://assets/images/fan_effect.png" id="7_ewp14"]
 
@@ -34,22 +34,6 @@ states/fast/position = Vector2(478, 110)
 states/slow/node = SubResource("AnimationNodeAnimation_pg3yn")
 states/slow/position = Vector2(288, 86)
 transitions = ["slow", "fast", SubResource("AnimationNodeStateMachineTransition_ay32u"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_mjuy6")]
-
-[sub_resource type="Animation" id="Animation_45xpr"]
-resource_name = "slow"
-length = 2.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.3, 1.5, 1.7, 1.9, 2, 2.1, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_cfvcr"]
 length = 0.001
@@ -155,11 +139,27 @@ tracks/3/keys = {
 "values": [Vector2(40, 0), Vector2(100, 0), Vector2(120, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_45xpr"]
+resource_name = "slow"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.3, 1.5, 1.7, 1.9, 2, 2.1, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_05o5x"]
 _data = {
-"RESET": SubResource("Animation_cfvcr"),
-"fast": SubResource("Animation_fyn2f"),
-"slow": SubResource("Animation_45xpr")
+&"RESET": SubResource("Animation_cfvcr"),
+&"fast": SubResource("Animation_fyn2f"),
+&"slow": SubResource("Animation_45xpr")
 }
 
 [node name="fan" type="StaticBody2D"]
