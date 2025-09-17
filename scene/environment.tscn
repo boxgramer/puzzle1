@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://3qophtee71tj"]
+[gd_scene load_steps=10 format=3 uid="uid://3qophtee71tj"]
 
+[ext_resource type="Script" uid="uid://3f4eusr27i4p" path="res://scripts/environment.gd" id="1_560hc"]
 [ext_resource type="PackedScene" uid="uid://yblq0gagj38g" path="res://object/iron.tscn" id="1_gybgm"]
 [ext_resource type="PackedScene" uid="uid://c6k0neo1i2uul" path="res://object/magnet.tscn" id="1_p8ves"]
 [ext_resource type="PackedScene" uid="uid://b1q0d6yq56mro" path="res://object/fan.tscn" id="5_c0rab"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://btvasvrgp3nmv" path="res://object/character_blue.tscn" id="8_e366k"]
 
 [node name="Environment" type="Node2D"]
+script = ExtResource("1_560hc")
 
 [node name="iron" parent="." instance=ExtResource("1_gybgm")]
 position = Vector2(96, 224)
@@ -81,9 +83,6 @@ position = Vector2(288, 288)
 [node name="catrol" parent="." instance=ExtResource("7_4j2r8")]
 position = Vector2(224, 32)
 
-[node name="character_red" parent="." instance=ExtResource("6_b40ej")]
-position = Vector2(568, 160)
-
 [node name="character_red3" parent="." instance=ExtResource("6_b40ej")]
 position = Vector2(160, 288)
 
@@ -95,3 +94,12 @@ position = Vector2(640, 160)
 
 [node name="character_red2" parent="." instance=ExtResource("8_e366k")]
 position = Vector2(712, 160)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 449.0
+offset_top = 16.0
+offset_right = 686.0
+offset_bottom = 39.0
+text = "They love each other. 
+Let them meet and hug."
+horizontal_alignment = 1
